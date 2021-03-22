@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Post = require('../schemas/posting')
-
 // XSS 방지
-var sanitizeHtml = require('sanitize-html');
-
+const sanitizeHtml = require('sanitize-html');
 // 시간 표기 설정
-var moment = require('moment');
+const moment = require('moment');
 require('moment-timezone');
 moment.tz.setDefault("Asia/Seoul");
 
@@ -46,7 +44,8 @@ router.post('/write', async (req, res) => {
 			title: title,
 			writer: writer,
 			content: content,
-			password: password
+			password: password,
+			date: Date.now()
 		});
 		res.json({ msg: "success" })
 	}
@@ -62,7 +61,6 @@ router.get('/detail/:id', async (req, res) => {
 		title: sanitizeHtml(post["title"]),
 		writer: sanitizeHtml(post["writer"]),
 		content: sanitizeHtml(post["content"]),
-		date: post["date"]
 	}
 	res.json(data)
 })

@@ -3,8 +3,6 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-// XSS 방지
-
 // MongoDB
 const connect = require('./schemas/db');
 connect();
