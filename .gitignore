@@ -1,2 +1,6 @@
+# 패키지
 node_modules
 package-lock.json
+
+# db 정보
+db.js

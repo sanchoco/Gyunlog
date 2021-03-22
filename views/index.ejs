@@ -5,6 +5,32 @@
 		<!-- jquery import -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+
+		<script>
+			$(document).ready(function() {
+				$("#contents").empty();
+				show_list();
+			})
+			function show_list(){
+				$.ajax({
+					type: "get",
+					url: `/api/list`,
+					success: function (response) {
+						let temp_html = ''
+						for (info of response){
+						temp_html += `
+							<tr>
+								<td><a href="/detail/${info["postId"]}">${info["title"]}</a></td>
+								<td>${info["writer"]}</td>
+								<td>${info["date"]}</td>
+							</tr>
+							`
+						}
+						$("#contents").append(temp_html)
+					}
+				});
+			}
+		</script>
 	</head>
 
 <body>
@@ -21,18 +47,13 @@
 			<td>작성일자</td>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="contents">
 		<tr>
 			<td><a href="/detail">엄청난 제목!</a></td>
 			<td>조상균</td>
 			<td>21/03/20 19:53</td>
 		</tr>
 
-		<tr>
-			<td><a href="/detail">신기한 제목!</a></td>
-			<td>홍길동</td>
-			<td>21/03/20 16:15</td>
-		</tr>
 	</tbody>
 	</table>
 
