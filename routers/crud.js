@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require('../schemas/posting')
+const bcrypt = require('bcrypt') // 비밀번호 암호화
 // XSS 방지
 const sanitizeHtml = require('sanitize-html');
 // 시간 표기 설정
@@ -44,7 +45,7 @@ router.post('/write', async (req, res) => {
 			title: title,
 			writer: writer,
 			content: content,
-			password: password,
+			password: bcrypt.hashSync(password, 10),
 			date: Date.now()
 		});
 		res.json({ msg: "success" })
@@ -86,30 +87,32 @@ router.put('/update/:id', async (req, res) => {
 	const data = await req.body;
 	const title = sanitizeHtml(data["title"]);
 	const writer = sanitizeHtml(data["writer"]);
-	const password = sanitizeHtml(data["password"]);
+	const password = data["password"];
 	const content = sanitizeHtml(data["content"]);
 	const db_post = await Post.findOne({ postId: id })
 		.select('password');
 	if (!(title && writer && password && content)) {
 		res.json({ msg: "empty" })
 	}
-	else if (db_post["password"] != data["password"]) {
-		res.json({ msg: "fail" })
-	}
-	else {
-		await Post.updateOne({ postId: id }, {
-			title: title,
-			writer: writer,
-			content: content,
-			password: password
-		})
-			.then(() => {
-				res.json({ msg: "success" })
+	bcrypt.compare(password, db_post["password"], (err, same) => { // 비밀번호 일치 확인
+		if (same) {
+			Post.updateOne({ postId: id }, {
+				title: title,
+				writer: writer,
+				content: content,
+				password: password
 			})
-			.catch(() => {
-				res.json({ msg: "fail" })
-			})
-	}
+				.then(() => {
+					res.json({ msg: "success" })
+				})
+				.catch(() => {
+					res.json({ msg: "fail" })
+				})
+		}
+		else {
+			res.json({ msg: "fail" })
+		}
+	})
 })
 
 // 게시글 삭제 처리
@@ -119,18 +122,19 @@ router.delete('/delete/:id', async (req, res) => {
 	const password = data["password"];
 	const db_post = await Post.findOne({ postId: id })
 		.select('password');
-	if (db_post["password"] != password) {
-		res.json({ msg: "fail" })
-	}
-	else {
-		await Post.deleteOne({ postId: id })
-			.then(() => {
-				res.json({ msg: "success" })
-			})
-			.catch(() => {
-				res.json({ msg: "fail" })
-			})
-	}
+	bcrypt.compare(password, db_post["password"], (err, same) => { // 비밀번호 일치 확인
+		if (same) {
+			Post.deleteOne({ postId: id })
+				.then(() => {
+					res.json({ msg: "success" })
+				})
+				.catch(() => {
+					res.json({ msg: "fail" })
+				})
+		} else {
+			res.json({ msg: "fail" })
+		}
+	})
 })
 
 module.exports = router;

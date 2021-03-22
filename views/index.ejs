@@ -4,33 +4,7 @@
 		<title>상균's Blog - Home</title>
 		<!-- jquery import -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-
-		<script>
-			$(document).ready(function() {
-				$("#contents").empty();
-				show_list();
-			})
-			function show_list(){
-				$.ajax({
-					type: "get",
-					url: `/api/list`,
-					success: function (response) {
-						let temp_html = ''
-						for (info of response){
-						temp_html += `
-							<tr>
-								<td><a href="/detail/${info["postId"]}">${info["title"]}</a></td>
-								<td>${info["writer"]}</td>
-								<td>${info["date"]}</td>
-							</tr>
-							`
-						}
-						$("#contents").append(temp_html)
-					}
-				});
-			}
-		</script>
+		<script src="/index.js"></script>
 	</head>
 
 <body>

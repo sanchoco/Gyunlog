@@ -5,25 +5,7 @@
 		<!-- jquery import -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 			crossorigin="anonymous"></script>
-
-		<script>
-			$(document).ready(function() {
-				show_data()
-			})
-			function show_data(){
-				$.ajax({
-					type: "get",
-					url: `/api` + window.location.pathname,
-					success: function (response) {
-						$("#title").text(response["title"])
-						$("#writer").text(response["writer"])
-						$("#content").text(response["content"])
-						$("#update").attr('onclick', `window.location.href='/update/${response["postId"]}'`)
-					}
-				});
-			}
-
-		</script>
+		<script src="/detail.js"></script>
 	</head>
 
 

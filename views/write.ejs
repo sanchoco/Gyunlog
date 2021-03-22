@@ -6,34 +6,7 @@
 	<!-- jquery import -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		crossorigin="anonymous"></script>
-
-	<script>
-		function posting(){
-			let title = $("#title").val()
-			let writer = $("#writer").val()
-			let password = $("#password").val()
-			let content = $("#content").val()
-
-			$.ajax({
-				type: "POST",
-				url: `/api/write`,
-				data: {
-					"title": title,
-					"writer" : writer,
-					"password" : password,
-					"content" : content
-				},
-				success: function (response) {
-					if (response.msg == "success"){
-						alert("등록 완료!")
-						window.location.href = "/";
-					} else {
-						alert("빈 곳을 확인 해주세요!")
-					}
-				}
-			});
-		}
-	</script>
+	<script src="/write.js"></script>>
 </head>
 
 <body>
