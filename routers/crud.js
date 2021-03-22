@@ -5,10 +5,24 @@ const Post = require('../schemas/posting')
 // XSS 방지
 var sanitizeHtml = require('sanitize-html');
 
+// 시간 표기 설정
+var moment = require('moment');
+require('moment-timezone');
+moment.tz.setDefault("Asia/Seoul");
+
+
 // 메인 페이지 리스트 불러오기
 router.get('/list', async (req, res) => {
 	const post = await Post.find().sort({ "date": -1 }).select('postId title writer date');
-	await res.json(post)
+	let data = []
+	for (i in post) {
+		const postId = post[i]["postId"];
+		const date = moment(post[i]["date"]).format('MM/DD HH:mm:ss')
+		const title = post[i]["title"];
+		const writer = post[i]["writer"];
+		data.push({postId, date, title, writer})
+	}
+	await res.json(data)
 })
 
 // 새로운 게시글 작성 처리
