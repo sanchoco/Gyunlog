@@ -1,6 +1,6 @@
 # Gyunlog
 
->익명으로 게시글을 남겨보세요! 
+>익명으로 게시글을 남겨보세요!
 
 <img src="https://user-images.githubusercontent.com/58046372/112098879-ddce7980-8be5-11eb-9e2c-9ae34d813e63.jpg" height="390px">
 
@@ -30,6 +30,6 @@ Node.js, express, mongoDB, jQuery, Bootstrap
 |          | DELETE | /api/delete/:id | { password } | 패스워드 확인 후 삭제 |
 
 ### 기타
-- XSS 공격 방지: sanitize-html 모듈을 사용하여 JS코드 차단   
+- XSS 공격 방지: sanitize-html 모듈을 사용하여 JS코드 차단
 - 패스워드 암호화: bcrypt 모듈을 사용하여 salt된 해시 알고리즘 비밀번호를 저장
 
