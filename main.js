@@ -12,32 +12,28 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'));
 
-// ejs 세팅
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
 // api 라우터
-const apiRouter = require("./routers/crud");
+const apiRouter = require("./routers/api");
 app.use("/api", [apiRouter]);
 
 // 홈
 app.get('/', (req, res) => {
-	res.render('index');
+	res.sendFile(__dirname + '/views/index.html');
 })
 
 // 수정 페이지
-app.get('/write', (req, res) => {
-	res.render('write');
+app.get('/post', (req, res) => {
+	res.sendFile(__dirname + '/views/post.html');
 })
 
 // 상세 페이지
 app.get('/detail/:Id', async (req, res) => {
-	res.render('detail');
+	res.sendFile(__dirname + '/views/detail.html');
 })
 
 //수정 페이지
 app.get('/update/:id', (req, res) => {
-	res.render('update');
+	res.sendFile(__dirname + '/views/update.html');
 })
 
 //listen

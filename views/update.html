@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>상균's 블로그 - 수정</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="/css/bootstrap.css" rel="stylesheet">
+
+	<!-- Custom fonts for this template -->
+	<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+		rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="/css/one-page-wonder.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/">상균's 블로그</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/">홈으로</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/post">글쓰기</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<header class="masthead text-center text-white">
+		<div class="masthead-content">
+			<div class="container">
+				<h1 class="masthead-heading mb-0">게시글 수정 페이지</h1>
+			</div>
+		</div>
+	</header>
+
+	<div class="container masthead-content mt-3 mb-5">
+		<!-- Content here -->
+		<div class="mb-3">
+			<label class="form-label form-control-lg">작성자</label>
+			<input id="writer" type="text" class="form-control form-control-lg" placeholder="이름을 입력하세요.">
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label form-control-lg">비밀번호</label>
+			<input id="password" type="password" class="form-control form-control-lg" placeholder="비밀번호를 입력하세요.">
+		</div>
+		<div class="mb-3">
+			<label class="form-label form-control-lg">제목</label>
+			<input id="title" type="text" class="form-control form-control-lg" placeholder="제목을 입력하세요.">
+		</div>
+		<div class="mb-3">
+			<label class="form-label form-control-lg">내용</label>
+			<textarea id="content" class="form-control form-control-lg" rows="3" placeholder="내용을 입력하세요."></textarea>
+		</div>
+		<div class="d-grid gap-2 ">
+			<button id="update_btn" onclick="update_data()" class="btn btn-info btn-lg" style="margin-right:15px;" type="button">수정</button>
+			<button id="delete_btn" onclick="delete_data()" class="btn btn-danger btn-lg " style="margin-right:15px;" type="button">삭제</button>
+			<button onclick="window.location.href='/'" class="btn btn-dark btn-lg" type="button">취소</button>
+		</div>
+
+	</div>
+
+
+	<!-- Footer -->
+	<footer class="py-5 bg-black">
+		<div class="container">
+			<p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.bundle.js"></script>
+	<script src="/js/update.js"></script>
+</body>
+
+</html>

@@ -38,9 +38,9 @@ function update_data(postId) {
 				alert("수정 완료!")
 				window.location.href = "/";
 			} else if (response.msg == "empty") {
-				alert("빈 곳을 확인해주세요!")
+				alert("빈 칸을 확인하세요.")
 			} else {
-				alert("비밀번호를 확인해주세요!")
+				alert("비밀번호를 확인해주세요.")
 			}
 		}
 	});

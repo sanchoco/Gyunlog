@@ -9,7 +9,6 @@ const moment = require('moment');
 require('moment-timezone');
 moment.tz.setDefault("Asia/Seoul");
 
-
 // 메인 페이지 리스트 불러오기
 router.get('/list', async (req, res) => {
 	const post = await Post.find().sort({ "date": -1 }).select('postId title writer date');
@@ -25,7 +24,7 @@ router.get('/list', async (req, res) => {
 })
 
 // 새로운 게시글 작성 처리
-router.post('/write', async (req, res) => {
+router.post('/post', async (req, res) => {
 	const data = await req.body;
 
 	const title = sanitizeHtml(data["title"]);
@@ -62,8 +61,9 @@ router.get('/detail/:id', async (req, res) => {
 		title: sanitizeHtml(post["title"]),
 		writer: sanitizeHtml(post["writer"]),
 		content: sanitizeHtml(post["content"]),
+		date: moment(post["date"]).format('MM/DD HH:mm:ss')
 	}
-	res.json(data)
+	res.json(data);
 })
 
 // 수정을 위한 이전 정보 가져오기
@@ -100,7 +100,6 @@ router.put('/update/:id', async (req, res) => {
 				title: title,
 				writer: writer,
 				content: content,
-				password: password
 			})
 				.then(() => {
 					res.json({ msg: "success" })

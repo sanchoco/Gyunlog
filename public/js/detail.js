@@ -11,6 +11,7 @@ $(document).ready(function() {
 			$("#title").text(response["title"])
 			$("#writer").text(response["writer"])
 			$("#content").text(response["content"])
+			$("#date").text(response["date"])
 			$("#update").attr('onclick', `window.location.href='/update/${response["postId"]}'`)
 		}
 	});

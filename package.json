@@ -11,8 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "crpyto": "^0.0.1-security",
-    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",

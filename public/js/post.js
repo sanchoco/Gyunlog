@@ -7,7 +7,7 @@ function posting() {
 
 	$.ajax({
 		type: "POST",
-		url: `/api/write`,
+		url: `/api/post`,
 		data: {
 			"title": title,
 			"writer": writer,
@@ -19,7 +19,7 @@ function posting() {
 				alert("등록 완료!")
 				window.location.href = "/";
 			} else {
-				alert("빈 곳을 확인 해주세요!")
+				alert("빈 곳을 확인 해주세요.")
 			}
 		}
 	});
