@@ -1,6 +1,6 @@
 # Gyunlog
 
-익명으로 게시글을 남겨보세요! 
+>익명으로 게시글을 남겨보세요! 
 
 <img src="https://user-images.githubusercontent.com/58046372/112098879-ddce7980-8be5-11eb-9e2c-9ae34d813e63.jpg" height="390px">
 
