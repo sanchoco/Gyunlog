@@ -20,7 +20,7 @@ router.get('/list', async (req, res) => {
 		const writer = post[i]["writer"];
 		data.push({postId, date, title, writer})
 	}
-	await res.json(data)
+	res.json(data)
 })
 
 // 새로운 게시글 작성 처리
@@ -29,7 +29,7 @@ router.post('/post', async (req, res) => {
 
 	const title = sanitizeHtml(data["title"]);
 	const writer = sanitizeHtml(data["writer"]);
-	const password = data["password"];
+	const password = sanitizeHtml(data["password"]);
 	const content = sanitizeHtml(data["content"]);
 	if (!(title && writer && password && content)) {
 		res.json({ msg: "fail" })
@@ -87,7 +87,7 @@ router.put('/update/:id', async (req, res) => {
 	const data = await req.body;
 	const title = sanitizeHtml(data["title"]);
 	const writer = sanitizeHtml(data["writer"]);
-	const password = data["password"];
+	const password = sanitizeHtml(data["password"]);
 	const content = sanitizeHtml(data["content"]);
 	const db_post = await Post.findOne({ postId: id })
 		.select('password');
