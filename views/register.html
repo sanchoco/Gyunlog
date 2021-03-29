@@ -60,23 +60,23 @@
 		<!-- Content here -->
 		<div class="mb-3">
 			<label class="form-label form-control-lg">아이디</label>
-			<input id="id" type="text" class="form-control form-control-lg" placeholder="영문, 숫자, _ 사용 가능">
+			<input id="id" type="text" class="form-control form-control-lg" placeholder="3자 이상 영문, 숫자, _ 사용 가능">
 		</div>
 
 		<div class="mb-3">
 			<label class="form-label form-control-lg">비밀번호</label>
-			<input id="password" type="password" class="form-control form-control-lg" placeholder="8자 이상 사용 가능">
+			<input id="password" type="password" class="form-control form-control-lg" placeholder="4자 이상 사용 가능">
 		</div>
 		<div class="mb-3">
 			<label class="form-label form-control-lg">비밀번호 확인</label>
-			<input id="password-re" type="password" class="form-control form-control-lg" placeholder="비밀번호를 다시 입력해주세요.">
+			<input id="password_re" type="password" class="form-control form-control-lg" placeholder="비밀번호를 다시 입력해주세요.">
 		</div>
 		<div class="mt-3 mb-4" style="color:rgb(91, 162, 129);">
 			<label class="form-label form-control-lg">닉네임</label>
-			<input id="nickname" type="text" class="form-control form-control-lg" placeholder=" 10자 이내 한글, 영문, 숫자 사용 가능"  style="color:rgb(91, 162, 129);">
+			<input id="nickname" type="text" class="form-control form-control-lg" placeholder=" 10자 이내 사용 가능"  style="color:rgb(91, 162, 129);">
 		</div>
 		<div class="d-grid gap-2 mt-5">
-			<button type="button" class="btn btn-primary btn-lg" onclick="">가입하기</button>
+			<button type="button" class="btn btn-primary btn-lg" onclick="register()">가입하기</button>
 		</div>
 		<hr class="mt-5">
 	</div>
@@ -94,6 +94,7 @@
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/bootstrap.bundle.js"></script>
 	<script src="/js/register.js"></script>
+	<script src="/js/common.js"></script>
 </body>
 
 </html>

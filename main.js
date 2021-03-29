@@ -16,6 +16,15 @@ app.use(express.static('public'));
 const apiRouter = require("./routers/api");
 app.use("/api", [apiRouter]);
 
+// 회원가입
+const registerRouter = require("./routers/registerApi");
+app.use("/register", [registerRouter]);
+
+// 회원가입
+const loginRouter = require("./routers/loginApi");
+app.use("/login", [loginRouter]);
+
+
 // 홈
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/views/index.html');
@@ -36,15 +45,6 @@ app.get('/update/:id', (req, res) => {
 	res.sendFile(__dirname + '/views/update.html');
 })
 
-//회원가입 페이지
-app.get('/register', (req, res) => {
-	res.sendFile(__dirname + '/views/register.html');
-})
-
-//로그인 페이지
-app.get('/login', (req, res) => {
-	res.sendFile(__dirname + '/views/login.html');
-})
 
 
 //listen

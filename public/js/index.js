@@ -2,6 +2,13 @@
 $(document).ready(function () {
 	$("#contents").empty();
 	show_list();
+	if (checkLogin()) {
+		$("#before_login_btn").addClass('d-none');
+        $("#after_login_btn").removeClass('d-none');
+	} else {
+		$("#before_login_btn").removeClass('d-none');
+        $("#after_login_btn").addClass('d-none');
+	}
 })
 function show_list() {
 	$.ajax({

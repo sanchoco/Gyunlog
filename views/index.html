@@ -47,8 +47,8 @@
 					</li>
 				</ul>
 
-				<!-- 로그인이 되어 있을 때 -->
-				<ul id="after_login" class="navbar-nav ml-auto d-none">
+				<!-- 로그인이 되어 있을 때  d-none -->
+				<ul id="after_login" class="navbar-nav ml-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="/">홈으로</a>
 					</li>
@@ -56,7 +56,7 @@
 						<a class="nav-link" href="/post">글쓰기</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" onclick="">로그아웃</a>
+						<a class="nav-link" href="#" onclick="logout()">로그아웃</a>
 					</li>
 				</ul>
 
@@ -70,12 +70,12 @@
 				<h1 class="masthead-heading mb-0">Gyunlog</h1>
 				<h2 class="masthead-subheading mb-0">글을 남겨주세요.</h2>
 				<!-- 로그인 전 -->
-				<div id="before_login" class="">
+				<div id="before_login_btn" class="">
 					<a href="/login" class="btn btn-primary btn-xl rounded-pill mt-5">로그인</a>
 				</div>
 				<!-- 로그인 후 -->
-				<div id="before_login" class="d-none">
-					<a href="/post" class="btn btn-primary btn-xl rounded-pill mt-5 d-none">글쓰기</a>
+				<div id="after_login_btn" class="">
+					<a href="/post" class="btn btn-primary btn-xl rounded-pill mt-5">글쓰기</a>
 				</div>
 			</div>
 		</div>
@@ -105,9 +105,12 @@
 	</footer>
 
 	<!-- Bootstrap core JavaScript -->
+
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/bootstrap.bundle.js"></script>
+	<script src="/js/common.js"></script>
 	<script src="/js/index.js"></script>
+
 </body>
 
 </html>
