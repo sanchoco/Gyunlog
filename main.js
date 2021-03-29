@@ -12,7 +12,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'));
 
-
 // 홈
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/views/index.html');

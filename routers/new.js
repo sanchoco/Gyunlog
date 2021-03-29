@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const Post = require('../schemas/posting')
+const User = require('../schemas/user')
 // XSS 방지
 const sanitizeHtml = require('sanitize-html');
 const path = require('path');
+const authMiddleware = require('../middlewares/auth');
+const jwt = require('jsonwebtoken');
+const key = require('../secret_key');
 
 // 새로운 글 쓰기
 router.get('/', (req, res) => {
@@ -11,12 +15,12 @@ router.get('/', (req, res) => {
 })
 
 // 새글 작성 처리
-router.post('/', async (req, res) => {
+router.post('/', authMiddleware, async (req, res) => {
 	const data = await req.body;
-
+	const { token } = req.headers;
+	const { userId } = jwt.verify(token, key);
+	const user = await User.findOne({_id:userId})
 	const title = sanitizeHtml(data["title"]);
-	const writer = "임시"
-	// const password = sanitizeHtml(data["password"]);
 	const content = sanitizeHtml(data["content"]);
 	if (!(title && content)) {
 		res.json({ msg: "fail" })
@@ -29,7 +33,7 @@ router.post('/', async (req, res) => {
 		await Post.create({
 			postId: index,
 			title: title,
-			writer: writer,
+			nickname: user.nickname,
 			content: content,
 			date: Date.now()
 		});

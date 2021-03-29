@@ -22,7 +22,7 @@ function show_list() {
 				<div class="card mt-4">
 					<div class="card-body">
 						<h5 class="card-title">${info["title"]}</h5>
-						<p class="card-text">${info["writer"]} | ${info["date"]}</p>
+						<p class="card-text">${info["nickname"]} | ${info["date"]}</p>
 						<a href="/${info["postId"]}" class="btn btn-primary">자세히 보기</a>
 					</div>
 				</div>

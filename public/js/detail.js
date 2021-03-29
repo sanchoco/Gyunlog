@@ -9,7 +9,7 @@ function show_data(){
 		url: `/list${window.location.pathname}`,
 		success: function (response) {
 			$("#title").text(response["title"])
-			$("#writer").text(response["writer"])
+			$("#nickname").text(response["nickname"])
 			$("#content").text(response["content"])
 			$("#date").text(response["date"])
 			$("#update_btn").attr('onclick', `window.location.href='/${response["postId"]}/update'`)
@@ -22,6 +22,9 @@ function delete_data(postId) {
 	$.ajax({
 		type: "DELETE",
 		url: `list/${postId}`,
+		headers: {
+			token: localStorage.getItem('token')
+		},
 		data: {
 			postId: postId
 		},
@@ -32,6 +35,9 @@ function delete_data(postId) {
 			} else {
 				alert("작성자만 삭제할 수 있습니다.")
 			}
+		},
+		error: function (xhr, textStatus, error) {
+			alert(xhr.responseJSON.message);
 		}
 	});
 }
