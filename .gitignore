@@ -1,3 +1,6 @@
+# os
+.DS_Store
+
 # 패키지
 node_modules
 package-lock.json
