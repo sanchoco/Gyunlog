@@ -18,6 +18,11 @@ h6 {
   font-weight: 800 !important;
 }
 
+div.content {
+  min-height: 36rem;
+}
+
+
 .btn-xl {
   text-transform: uppercase;
   padding: 1.5rem 3rem;
@@ -113,6 +118,7 @@ header.masthead .bg-circle-4 {
   top: -5rem;
   right: 35%;
 }
+
 
 @media (min-width: 992px) {
   header.masthead {

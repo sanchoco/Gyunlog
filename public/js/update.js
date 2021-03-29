@@ -12,7 +12,6 @@ function get_data() {
 			$("#writer").attr("value", response["writer"])
 			$("#content").text(response["content"])
 			$("#update_btn").attr("onclick", `update_data(${response["postId"]})`)
-			$("#delete_btn").attr("onclick", `delete_data(${response["postId"]})`)
 
 		}
 	});
@@ -46,21 +45,3 @@ function update_data(postId) {
 	});
 }
 
-function delete_data(postId) {
-	let password = $("#password").val()
-	$.ajax({
-		type: "DELETE",
-		url: `/api/delete/` + postId,
-		data: {
-			"password": password,
-		},
-		success: function (response) {
-			if (response.msg == "success") {
-				alert("삭제 완료!")
-				window.location.href = "/";
-			} else {
-				alert("비밀번호를 확인해주세요!")
-			}
-		}
-	});
-}

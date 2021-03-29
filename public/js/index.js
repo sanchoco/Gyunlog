@@ -12,7 +12,7 @@ function show_list() {
 			for (info of response) {
 				temp_html +=
 				`
-				<div class="card w-100">
+				<div class="card mt-4">
 					<div class="card-body">
 						<h5 class="card-title">${info["title"]}</h5>
 						<p class="card-text">${info["writer"]} | ${info["date"]}</p>

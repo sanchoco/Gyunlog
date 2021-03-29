@@ -33,14 +33,33 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
+
+				<!-- 로그인 전일 때 -->
+				<ul id="before_login" class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/">홈으로</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/login">로그인</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/register">회원가입</a>
+					</li>
+				</ul>
+
+				<!-- 로그인이 되어 있을 때 -->
+				<ul id="after_login" class="navbar-nav ml-auto d-none">
 					<li class="nav-item">
 						<a class="nav-link" href="/">홈으로</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/post">글쓰기</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" onclick="">로그아웃</a>
+					</li>
 				</ul>
+
 			</div>
 		</div>
 	</nav>
@@ -49,21 +68,28 @@
 		<div class="masthead-content">
 			<div class="container">
 				<h1 class="masthead-heading mb-0">Gyunlog</h1>
-				<h2 class="masthead-subheading mb-0">익명으로 글을 남겨주세요.</h2>
-				<a href="/post" class="btn btn-primary btn-xl rounded-pill mt-5">글쓰기</a>
+				<h2 class="masthead-subheading mb-0">글을 남겨주세요.</h2>
+				<!-- 로그인 전 -->
+				<div id="before_login" class="">
+					<a href="/login" class="btn btn-primary btn-xl rounded-pill mt-5">로그인</a>
+				</div>
+				<!-- 로그인 후 -->
+				<div id="before_login" class="d-none">
+					<a href="/post" class="btn btn-primary btn-xl rounded-pill mt-5 d-none">글쓰기</a>
+				</div>
 			</div>
 		</div>
 	</header>
 
-	<div id="contents" style="min-height: 500px;">
+	<div class="content container mt-4" id="contents">
 
-	<div class="card w-100">
-		<div class="card-body">
-			<h5 class="card-title">멋있는 제목</h5>
-			<p class="card-text">작성자 | 20/12/11 13:32:22</p>
-			<a href="#" class="btn btn-primary">자세히 보기</a>
+		<div class="card mt-3">
+			<div class="card-body">
+				<h5 class="card-title">멋있는 제목</h5>
+				<p class="card-text">작성자 | 20/12/11 13:32:22</p>
+				<a href="#" class="btn btn-primary">자세히 보기</a>
+			</div>
 		</div>
-	</div>
 
 	</div>
 

@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Gyunlog - 글쓰기</title>
+	<title>Gyunlog - 로그인</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.css" rel="stylesheet">
@@ -38,7 +38,10 @@
 						<a class="nav-link" href="/">홈으로</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/post">글쓰기</a>
+						<a class="nav-link" href="/login">로그인</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/register">회원가입</a>
 					</li>
 				</ul>
 			</div>
@@ -48,29 +51,37 @@
 	<header class="masthead text-center text-white">
 		<div class="masthead-content">
 			<div class="container">
-				<h1 class="masthead-heading mb-0">게시글 작성 페이지</h1>
+				<h1 class="masthead-heading mb-0">로그인 페이지</h1>
 			</div>
 		</div>
 	</header>
 
-	<div class="content container masthead-content mt-3 mb-5">
+	<div class="container masthead-content mt-5 mb-5">
 		<!-- Content here -->
-		<div class="ml-2 mt-4">
-			<h2>글쓰기</h2>
-		</div>
-		<div class="mb-3">
-			<label class="form-label form-control-lg">제목</label>
-			<input id="title" type="text" class="form-control form-control-lg" placeholder="제목을 입력하세요.">
-		</div>
-		<div class="mb-3">
-			<label class="form-label form-control-lg">내용</label>
-			<textarea id="content" class="form-control form-control-lg" rows="3" placeholder="내용을 입력하세요."></textarea>
-		</div>
-		<div class="d-grid gap-2">
-			<button type="button" class="btn btn-primary btn-lg" onclick="posting()">작성 완료</button>
+		<p class="h2 card-title">로그인</p>
+		<div class="mb-1">
+			<label class="form-label form-control-lg">아이디</label>
+			<input id="id" type="text" class="form-control form-control-lg" placeholder="아이디를 입력하세요.">
 		</div>
 
+		<div class="mb-1">
+			<label class="form-label form-control-lg">비밀번호</label>
+			<input id="password" type="password" class="form-control form-control-lg" placeholder="비밀번호를 입력하세요.">
+		</div>
+
+		<div class="d-grid gap-2 mt-4 mb-4">
+			<button type="button" class="btn btn-primary btn-lg" onclick="">로그인</button>
+		</div>
+		<hr>
+		<div class="d-grid gap-2 mt-4 mb-5">
+			<p class="h2 card-title">회원가입</p>
+			<label class="ml-1">아직 회원이 아니시라면?</label>
+			<div class="d-grid gap-2 mt-3 mb-5">
+				<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/register'">가입하기</button>
+			</div>
+		</div>
 	</div>
+
 
 
 	<!-- Footer -->
@@ -84,7 +95,7 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/bootstrap.bundle.js"></script>
-	<script src="/js/post.js"></script>
+	<script src="/js/register.js"></script>
 </body>
 
 </html>

@@ -84,7 +84,7 @@ router.get('/update/:id', async (req, res) => {
 router.put('/update/:id', async (req, res) => {
 	const id = req.params.id
 
-	const data = await req.body;
+	const data = req.body;
 	const title = sanitizeHtml(data["title"]);
 	const writer = sanitizeHtml(data["writer"]);
 	const password = sanitizeHtml(data["password"]);

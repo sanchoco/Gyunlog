@@ -36,6 +36,17 @@ app.get('/update/:id', (req, res) => {
 	res.sendFile(__dirname + '/views/update.html');
 })
 
+//회원가입 페이지
+app.get('/register', (req, res) => {
+	res.sendFile(__dirname + '/views/register.html');
+})
+
+//로그인 페이지
+app.get('/login', (req, res) => {
+	res.sendFile(__dirname + '/views/login.html');
+})
+
+
 //listen
 app.listen(port, () => {
 	console.log(`Listening at http://localhost:${port}`)

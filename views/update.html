@@ -33,12 +33,29 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
+				<!-- 로그인 전일 때 -->
+				<ul id="before_login" class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/">홈으로</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/login">로그인</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/register">회원가입</a>
+					</li>
+				</ul>
+
+				<!-- 로그인이 되어 있을 때 -->
+				<ul id="after_login" class="navbar-nav ml-auto d-none">
 					<li class="nav-item">
 						<a class="nav-link" href="/">홈으로</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/post">글쓰기</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" onclick="">로그아웃</a>
 					</li>
 				</ul>
 			</div>
@@ -53,17 +70,9 @@
 		</div>
 	</header>
 
-	<div class="container masthead-content mt-3 mb-5">
+	<div class="content container masthead-content mt-3 mb-5">
 		<!-- Content here -->
-		<div class="mb-3">
-			<label class="form-label form-control-lg">작성자</label>
-			<input id="writer" type="text" class="form-control form-control-lg" placeholder="이름을 입력하세요.">
-		</div>
 
-		<div class="mb-3">
-			<label class="form-label form-control-lg">비밀번호</label>
-			<input id="password" type="password" class="form-control form-control-lg" placeholder="비밀번호를 입력하세요.">
-		</div>
 		<div class="mb-3">
 			<label class="form-label form-control-lg">제목</label>
 			<input id="title" type="text" class="form-control form-control-lg" placeholder="제목을 입력하세요.">
@@ -74,7 +83,6 @@
 		</div>
 		<div class="d-grid gap-2 ">
 			<button id="update_btn" onclick="update_data()" class="btn btn-primary btn-lg" style="margin-right:15px;" type="button">수정</button>
-			<button id="delete_btn" onclick="delete_data()" class="btn btn-danger btn-lg " style="margin-right:15px;" type="button">삭제</button>
 			<button onclick="window.location.href='/'" class="btn btn-dark btn-lg" type="button">취소</button>
 		</div>
 

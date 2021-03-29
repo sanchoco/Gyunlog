@@ -25,6 +25,7 @@
 <body>
 
 	<!-- Navigation -->
+	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="/">Gyunlog</a>
@@ -37,8 +38,16 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/">홈으로</a>
 					</li>
+					<!-- 로그인 전일 때 -->
+					<li class="nav-item">
+						<a class="nav-link" href="/register">로그인</a>
+					</li>
+					<!-- 로그인이 되어 있을 때 -->
 					<li class="nav-item">
 						<a class="nav-link" href="/post">글쓰기</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" onclick="">로그아웃</a>
 					</li>
 				</ul>
 			</div>
@@ -65,7 +74,10 @@
 				이런 저런 내용은 여기에 이렇게 저렇게 들어갈거에요.
 				</pre>
 			</span>
-			<button type="button" id="update" class="btn btn-info mt-5" onclick="window.location.href='/update'">수정 및 삭제</button>
+			<div class="mt-5">
+			<button type="button" id="update_btn" class="btn btn-primary mr-2" onclick="window.location.href='/update'">수정</button>
+			<button type="button" id="delete_btn" onclick="delete_data()" class="btn btn-danger" style="margin-right:15px;" >삭제</button>
+			</div>
 	</div>
 
 
