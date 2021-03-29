@@ -74,14 +74,13 @@
 
 	<div class="container masthead-content mt-5 mb-5" style="min-height: 500px;">
 		<!-- Content here -->
-			<h2>제목: <span id="title">신기한 제목!!</span></h3>
-			<h5 class="mt-4">작성자:</h4> <span id="nickname">홍길동</span>
-			<h5 class="mt-4">작성일:</h4> <span id="date">20/02/10 15:00:00</span>
+			<h2>제목: <span id="title"> </span></h3>
+			<h5 class="mt-4">작성자:</h4> <span id="nickname"> </span>
+			<h5 class="mt-4">작성일:</h4> <span id="date"> </span>
 			<h5 class="mt-4">내용</h4>
 			<span style="display:block;">
 				<pre id="content" style="white-space: pre-wrap;">
-				이런 저런 내용이 들어갈 부분입니다!
-				이런 저런 내용은 여기에 이렇게 저렇게 들어갈거에요.
+
 				</pre>
 			</span>
 			<div class="mt-5 mb-4">
@@ -95,7 +94,23 @@
 				<h3>댓글</h3>
 				<div id="comment_form" class="input-group mb-3">
 					<input id="comment" type="text" class="form-control" placeholder="댓글을 입력하세요." >
-					<button onclick="" class="btn btn-primary" type="button" id="button-addon2">댓글 등록</button>
+					<button  class="btn btn-primary" type="button" id="comment_btn">댓글 등록</button>
+				</div>
+				<div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th style="width: 15%;">이름</th>
+								<th style="width: 55%;">코멘트 내용</th>
+								<th style="width: 30%; text-align:right;">날짜</th>
+							</tr>
+						</thead>
+						<tbody id="comment_table">
+
+
+						</tbody>
+
+					</table>
 				</div>
 			</div>
 	</div>

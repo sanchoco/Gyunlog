@@ -33,6 +33,10 @@ app.use("/new", [newRouter]);
 const listRouter = require("./routers/list");
 app.use("/list", [listRouter]);
 
+// 댓글 관련
+const commentRouter = require("./routers/comment");
+app.use("/comment", [commentRouter]);
+
 // 상세 페이지
 app.get('/:Id', async (req, res) => {
 	res.sendFile(__dirname + '/views/detail.html');
