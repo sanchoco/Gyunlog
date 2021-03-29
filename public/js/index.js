@@ -13,7 +13,7 @@ $(document).ready(function () {
 function show_list() {
 	$.ajax({
 		type: "get",
-		url: `/api/list`,
+		url: `/list`,
 		success: function (response) {
 			let temp_html = ''
 			for (info of response) {
@@ -23,7 +23,7 @@ function show_list() {
 					<div class="card-body">
 						<h5 class="card-title">${info["title"]}</h5>
 						<p class="card-text">${info["writer"]} | ${info["date"]}</p>
-						<a href="/detail/${info["postId"]}" class="btn btn-primary">자세히 보기</a>
+						<a href="/${info["postId"]}" class="btn btn-primary">자세히 보기</a>
 					</div>
 				</div>
 				`

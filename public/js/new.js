@@ -7,7 +7,7 @@ function posting() {
 
 	$.ajax({
 		type: "POST",
-		url: `/api/post`,
+		url: `/new`,
 		data: {
 			"title": title,
 			"writer": writer,

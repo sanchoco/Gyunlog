@@ -6,10 +6,9 @@ $(document).ready(function () {
 function get_data() {
 	$.ajax({
 		type: "get",
-		url: `/api` + window.location.pathname,
+		url: "/list/" + window.location.pathname.split("/")[1],
 		success: function (response) {
 			$("#title").attr("value", response["title"])
-			$("#writer").attr("value", response["writer"])
 			$("#content").text(response["content"])
 			$("#update_btn").attr("onclick", `update_data(${response["postId"]})`)
 
@@ -19,17 +18,13 @@ function get_data() {
 
 function update_data(postId) {
 	let title = $("#title").val()
-	let writer = $("#writer").val()
-	let password = $("#password").val()
 	let content = $("#content").val()
 
 	$.ajax({
 		type: "PUT",
-		url: `/api/update/` + postId,
+		url: `/list/` + postId + '/update',
 		data: {
 			"title": title,
-			"writer": writer,
-			"password": password,
 			"content": content
 		},
 		success: function (response) {

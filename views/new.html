@@ -34,26 +34,13 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 
-				<!-- 로그인 전일 때 -->
-				<ul id="before_login" class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="/">홈으로</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/login">로그인</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/register">회원가입</a>
-					</li>
-				</ul>
-
 				<!-- 로그인이 되어 있을 때  d-none -->
 				<ul id="after_login" class="navbar-nav ml-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="/">홈으로</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/post">글쓰기</a>
+						<a class="nav-link" href="/new">글쓰기</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#" onclick="logout()">로그아웃</a>
@@ -88,9 +75,7 @@
 		<div class="d-grid gap-2">
 			<button type="button" class="btn btn-primary btn-lg" onclick="posting()">작성 완료</button>
 		</div>
-
 	</div>
-
 
 	<!-- Footer -->
 	<footer class="py-5 bg-black">
@@ -103,7 +88,7 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/bootstrap.bundle.js"></script>
-	<script src="/js/post.js"></script>
+	<script src="/js/new.js"></script>
 	<script src="/js/common.js"></script>
 </body>
 
