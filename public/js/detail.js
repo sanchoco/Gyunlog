@@ -134,7 +134,7 @@ function edit_comment(commentId) { // 수정 버튼 클릭
 }
 
 function delete_comment(commentId) { // 삭제 버튼 클릭
-	if (confirm("삭제하시겠습니까?") == true) {
+	if (confirm("댓글을 삭제하시겠습니까?") == true) {
 		$.ajax({
 			type: "DELETE",
 			url: `comment/${commentId}`,

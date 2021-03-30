@@ -1,4 +1,12 @@
 // register.js
+$(document).ready(function () {
+	if (localStorage.getItem('token')) {
+		alert("이미 로그인되어 있습니다. 메인 페이지로 이동합니다.");
+		window.location.href = "/";
+	}
+})
+
+
 function register() {
 	let id = $("#id").val()
 	let password = $("#password").val()
