@@ -26,8 +26,11 @@ function posting() {
 			if (response.msg == "success") {
 				alert("등록 완료!")
 				window.location.href = "/";
-			} else {
+			} else if (response.msg == "empty") {
 				alert("빈 곳을 확인 해주세요.")
+			} else {
+				alert("잘못된 접속입니다. 다시 로그인 하세요.")
+				logout();
 			}
 		},
 		error: function (xhr, textStatus, error) {

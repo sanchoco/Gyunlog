@@ -75,7 +75,8 @@ function comment_add(postId) {
 			} else if (response.msg == "empty"){
 				alert("댓글을 입력하세요.");
 			} else {
-				alert("등록 에러");
+				alert("잘못된 접근입니다. 다시 로그인 하세요.")
+				logout();
 			}
 		},
 		error: function (xhr, textStatus, error) {

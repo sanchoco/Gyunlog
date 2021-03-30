@@ -19,11 +19,21 @@ router.post('/', authMiddleware, async (req, res) => {
 	const data = await req.body;
 	const { token } = req.headers;
 	const { userId } = jwt.verify(token, key);
-	const user = await User.findOne({_id:userId})
+
+	const user = await User.findOne({ _id: userId }).exec()
+		.catch(err => {
+			res.json({ msg: "fail" })
+			return
+		})
+	if (!user) {
+		res.json({ msg: "fail" })
+		return
+	}
 	const title = sanitizeHtml(data["title"]);
 	const content = sanitizeHtml(data["content"]);
 	if (!(title && content)) {
-		res.json({ msg: "fail" })
+		res.json({ msg: "empty" })
+		return
 	} else {
 		const lasted = await Post.findOne().sort({ "postId": -1 });
 		let index = 1

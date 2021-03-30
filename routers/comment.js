@@ -49,6 +49,10 @@ router.post('/:id', authMiddleware, async (req, res) => {
 		res.json({ msg: "empty" });
 		return
 	}
+	if (!user) {
+		res.json({ msg: "fail" })
+		return
+	}
 	let index = 1
 	const lasted = await Comment.findOne().sort({ "commentId": -1 });
 	if (lasted) {
