@@ -11,3 +11,4 @@ secret_key.js
 
 # test
 test.js
+verification.spec.js
