@@ -28,6 +28,12 @@ function register() {
 				window.location.href = "/login";
 			} else if (response.msg == "empty") {
 				alert("빈 곳을 확인 해주세요.")
+			} else if (response.msg == "wrong_id") {
+				alert("사용할 수 없는 아이디입니다. 다시 확인해주세요.")
+			} else if (response.msg == "wrong_nickname") {
+				alert("사용할 수 없는 닉네임입니다. 다시 확인해주세요.")
+			} else if (response.msg == "wrong_password") {
+				alert("사용할 수 없는 비밀번호입니다. 다시 확인해주세요.")
 			} else if (response.msg == "already_id") {
 				alert("이미 존재하는 아이디입니다.")
 			} else if (response.msg == "already_nickname") {
