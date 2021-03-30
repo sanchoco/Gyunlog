@@ -3,7 +3,7 @@ function check_id(id) {
 	if (id.length < 3)
 		return false;
 	const allow_char =
-		"abcdefghijklmnopqrstuvwsyzABCDEFGHIJKLMNOPQRSTUVWSYZ0123456789_"
+		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
 	for (c of id) {
 		if (!allow_char.includes(c))
 			return false;

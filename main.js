@@ -37,6 +37,10 @@ app.use("/list", [listRouter]);
 const commentRouter = require("./routers/comment");
 app.use("/comment", [commentRouter]);
 
+// 유저 정보
+const userRouter = require("./routers/user");
+app.use("/user", [userRouter]);
+
 // 상세 페이지
 app.get('/:Id', async (req, res) => {
 	res.sendFile(__dirname + '/views/detail.html');
@@ -46,6 +50,7 @@ app.get('/:Id', async (req, res) => {
 app.get('/:id/update', (req, res) => {
 	res.sendFile(__dirname + '/views/update.html');
 })
+
 
 //listen
 app.listen(port, () => {

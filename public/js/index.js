@@ -1,6 +1,7 @@
 // index.js
 $(document).ready(function () {
 	$("#contents").empty();
+	whoru();
 	show_list();
 	if (checkLogin()) {
 		$("#before_login_btn").addClass('d-none');
@@ -31,4 +32,27 @@ function show_list() {
 			$("#contents").append(temp_html)
 		}
 	});
+}
+
+function whoru() {
+	if (localStorage.token) {
+
+		$.ajax({
+		type: "get",
+		url: `/user`,
+		headers: {
+			token: localStorage.getItem('token')
+		},
+		success: function (response) {
+			let nickname = response.nickname;
+			console.log(response);
+			$("#whoru").text(`${nickname}님, 안녕하세요!`);
+		},
+		error: function (xhr, status, err) {
+			logout();
+		}
+	});
+
+
+	}
 }

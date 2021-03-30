@@ -23,17 +23,16 @@
 </head>
 
 <body>
-
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="/">Gyunlog</a>
+
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
-
 				<!-- 로그인 전일 때 -->
 				<ul id="before_login" class="navbar-nav ml-auto">
 					<li class="nav-item">
@@ -68,26 +67,23 @@
 		<div class="masthead-content">
 			<div class="container">
 				<h1 class="masthead-heading mb-0">Gyunlog</h1>
-				<h2 class="masthead-subheading mb-0">글을 남겨주세요.</h2>
+				<h3 id="whoru" class="masthead-subheading mb-0">오늘 하루 무슨 일이 있었나요?</h3>
 				<!-- 로그인 전 -->
 				<div id="before_login_btn" class="">
-					<a href="/login" class="btn btn-primary btn-xl rounded-pill mt-5">로그인</a>
+					<a href="/login" class="btn btn-primary btn-xl rounded-pill mt-4">로그인</a>
 				</div>
 				<!-- 로그인 후 -->
 				<div id="after_login_btn" class="">
-					<a href="/new" class="btn btn-primary btn-xl rounded-pill mt-5">글쓰기</a>
+					<a href="/new" class="btn btn-primary btn-xl rounded-pill mt-4">글쓰기</a>
+					<a onclick="logout()" href="" class="btn btn-dark btn-xl rounded-pill mt-4 ml-4">로그아웃</a>
 				</div>
 			</div>
 		</div>
 	</header>
 
 	<div class="content container mt-4 mb-4" id="contents">
-
-
+		<!-- 글 목록 -->
 	</div>
-
-
-
 
 	<!-- Footer -->
 	<footer class="py-5 bg-black">
