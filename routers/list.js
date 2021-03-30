@@ -33,12 +33,24 @@ router.get('/:id', async (req, res) => {
 	const id = req.params.id
 	const post = await Post.findOne({ postId: id })
 		.select('postId title nickname content date');
+
+	let user;
+	try {
+		const { token } = req.headers;
+		const { userId } = jwt.verify(token, key);
+		user = await User.findOne({ _id: userId },{"nickname":true})
+	} catch (err) { }
+	let permission = 0
+		if (user && user["nickname"] == post["nickname"])
+			permission = 1
+
 	const data = {
 		postId: id,
 		title: sanitizeHtml(post["title"]),
 		nickname: sanitizeHtml(post["nickname"]),
 		content: sanitizeHtml(post["content"]),
-		date: moment(post["date"]).format('MM/DD HH:mm:ss')
+		date: moment(post["date"]).format('MM/DD HH:mm:ss'),
+		permission: permission
 	}
 	res.json(data);
 })

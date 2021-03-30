@@ -16,13 +16,24 @@ moment.tz.setDefault("Asia/Seoul");
 router.get('/:id', async (req, res) => {
 	const id = req.params.id;
 	comments = await Comment.find({ postId: id }).sort({ "commentId": -1 });
+	let user;
+	try {
+		const { token } = req.headers;
+		const { userId } = jwt.verify(token, key);
+		user = await User.findOne({ _id: userId },{"nickname":true})
+	} catch (err) {	}
 
 	let data = []
 	for (i in comments) {
+		const commentId = comments[i]["commentId"];
+		const postId = comments[i]["postId"];
 		const nickname = comments[i]["nickname"];
-		const date = moment(comments[i]["date"]).format('MM/DD HH:mm:ss')
+		const date = moment(comments[i]["date"]).format('MM/DD HH:mm')
 		const comment = comments[i]["comment"];
-		data.push({nickname, date, comment })
+		let permission = 0
+		if (user && user["nickname"] == comments[i]["nickname"])
+			permission = 1
+		data.push({commentId, postId, nickname, date, comment, permission })
 	}
 	res.json(data);
 })
@@ -52,5 +63,45 @@ router.post('/:id', authMiddleware, async (req, res) => {
 	})
 	res.json({ msg: "success" });
 })
+
+// 댓글 수정
+router.put('/:commentId', authMiddleware, async (req, res) => {
+	const commentId = req.params.commentId;
+	const data = await req.body;
+	if (!data.comment) {
+		res.json({ msg: "empty" });
+		return
+	}
+	const { token } = req.headers;
+	const { userId } = jwt.verify(token, key);
+	try {
+		const user = await User.findOne({ _id: userId },{"nickname":true})
+		const comment = await Comment.findOne({ commentId }, { "nickname": true })
+		if (user.nickname == comment.nickname) {
+			await Comment.updateOne({ commentId }, { comment : data.comment })
+			res.json({ msg: "success" });
+			return
+		}
+	} catch (err) { }
+	res.json({ msg: "fail" });
+})
+
+// 댓글 수정
+router.delete('/:commentId', authMiddleware, async (req, res) => {
+	const commentId = req.params.commentId;
+	const { token } = req.headers;
+	const { userId } = jwt.verify(token, key);
+	try {
+		const user = await User.findOne({ _id: userId },{"nickname":true})
+		const comment = await Comment.findOne({ commentId }, { "nickname": true })
+		if (user.nickname == comment.nickname) {
+			await Comment.deleteOne({ commentId })
+			res.json({ msg: "success" });
+			return
+		}
+	} catch (err) { }
+	res.json({ msg: "fail" });
+})
+
 
 module.exports = router;

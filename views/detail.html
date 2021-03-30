@@ -74,12 +74,12 @@
 
 	<div class="container masthead-content mt-5 mb-5" style="min-height: 500px;">
 		<!-- Content here -->
-			<h2>제목: <span id="title"> </span></h3>
-			<h5 class="mt-4">작성자:</h4> <span id="nickname"> </span>
-			<h5 class="mt-4">작성일:</h4> <span id="date"> </span>
+			<h4>제목: <span id="title"> </span></h4>
+			<h5 class="mt-4">닉네임</h4> <span id="nickname" style="white-space: pre-wrap; font-size: 1.2em;"> </span>
+			<h5 class="mt-4">작성일</h4> <span id="date" style="white-space: pre-wrap; font-size: 1.2em;"> </span>
 			<h5 class="mt-4">내용</h4>
 			<span style="display:block;">
-				<pre id="content" style="white-space: pre-wrap;">
+				<pre id="content" style="white-space: pre-wrap; font-size: 1.2em;">
 
 				</pre>
 			</span>
@@ -96,17 +96,18 @@
 					<input id="comment" type="text" class="form-control" placeholder="댓글을 입력하세요." >
 					<button  class="btn btn-primary" type="button" id="comment_btn">댓글 등록</button>
 				</div>
-				<div>
+				<div id="comment_wrap">
 					<table class="table">
 						<thead>
 							<tr>
-								<th style="width: 15%;">이름</th>
-								<th style="width: 55%;">코멘트 내용</th>
-								<th style="width: 30%; text-align:right;">날짜</th>
+								<th style="width:9rem">닉네임</th>
+								<th>내용</th>
+								<th style="text-align:center;">작성일</th>
+								<th></th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody id="comment_table">
-
 
 						</tbody>
 
