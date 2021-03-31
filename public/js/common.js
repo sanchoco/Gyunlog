@@ -1,6 +1,6 @@
 $(document).ready(function () {
-	checkLogin()
-})
+	checkLogin();
+});
 
 function new_post() {
 	window.location.href = '/new';
@@ -25,12 +25,12 @@ function logout() {
 
 function checkLogin() {
 	if (localStorage.token) {
-		$("#before_login").addClass('d-none');
-		$("#after_login").removeClass('d-none');
+		$('#before_login').addClass('d-none');
+		$('#after_login').removeClass('d-none');
 		return true;
 	} else {
-		$("#before_login").removeClass('d-none');
-		$("#after_login").addClass('d-none');
+		$('#before_login').removeClass('d-none');
+		$('#after_login').addClass('d-none');
 		return false;
 	}
 }

@@ -9,4 +9,4 @@ const comment = new Schema({
 	date: { type: Date, default: Date.now() }
 });
 
-module.exports = mongoose.model("Comment", comment);
+module.exports = mongoose.model('Comment', comment);

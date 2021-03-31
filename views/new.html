@@ -1,95 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
 
-<head>
+		<title>Gyunlog - 글쓰기</title>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.css" rel="stylesheet" />
 
-	<title>Gyunlog - 글쓰기</title>
+		<!-- Custom fonts for this template -->
+		<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
 
-	<!-- Bootstrap core CSS -->
-	<link href="/css/bootstrap.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="/css/one-page-wonder.css" rel="stylesheet" />
+	</head>
 
-	<!-- Custom fonts for this template -->
-	<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
-		rel="stylesheet">
-
-	<!-- Custom styles for this template -->
-	<link href="/css/one-page-wonder.css" rel="stylesheet">
-</head>
-
-<body>
-
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="/">Gyunlog</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-
-				<!-- 로그인이 되어 있을 때  d-none -->
-				<ul id="after_login" class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="/">홈으로</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/new">글쓰기</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="logout()">로그아웃</a>
-					</li>
-				</ul>
-
-			</div>
-		</div>
-	</nav>
-
-	<header class="masthead text-center text-white">
-		<div class="masthead-content">
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 			<div class="container">
-				<h1 class="masthead-heading mb-0">게시글 작성 페이지</h1>
+				<a class="navbar-brand" href="/">Gyunlog</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarResponsive"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<!-- 로그인이 되어 있을 때  d-none -->
+					<ul id="after_login" class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="/">홈으로</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/new">글쓰기</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" onclick="logout()">로그아웃</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<header class="masthead text-center text-white">
+			<div class="masthead-content">
+				<div class="container">
+					<h1 class="masthead-heading mb-0">게시글 작성 페이지</h1>
+				</div>
+			</div>
+		</header>
+
+		<div class="content container masthead-content mt-3 mb-5">
+			<!-- Content here -->
+			<div class="ml-2 mt-4">
+				<h2>글쓰기</h2>
+			</div>
+			<div class="mb-3">
+				<label class="form-label form-control-lg">제목</label>
+				<input id="title" type="text" class="form-control form-control-lg" placeholder="제목을 입력하세요." />
+			</div>
+			<div class="mb-3">
+				<label class="form-label form-control-lg">내용</label>
+				<textarea id="content" class="form-control form-control-lg" rows="3" placeholder="내용을 입력하세요."></textarea>
+			</div>
+			<div class="d-grid gap-2">
+				<button type="button" class="btn btn-primary btn-lg" onclick="posting()">작성 완료</button>
 			</div>
 		</div>
-	</header>
 
-	<div class="content container masthead-content mt-3 mb-5">
-		<!-- Content here -->
-		<div class="ml-2 mt-4">
-			<h2>글쓰기</h2>
-		</div>
-		<div class="mb-3">
-			<label class="form-label form-control-lg">제목</label>
-			<input id="title" type="text" class="form-control form-control-lg" placeholder="제목을 입력하세요.">
-		</div>
-		<div class="mb-3">
-			<label class="form-label form-control-lg">내용</label>
-			<textarea id="content" class="form-control form-control-lg" rows="3" placeholder="내용을 입력하세요."></textarea>
-		</div>
-		<div class="d-grid gap-2">
-			<button type="button" class="btn btn-primary btn-lg" onclick="posting()">작성 완료</button>
-		</div>
-	</div>
+		<!-- Footer -->
+		<footer class="py-5 bg-black">
+			<div class="container">
+				<p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
+			</div>
+			<!-- /.container -->
+		</footer>
 
-	<!-- Footer -->
-	<footer class="py-5 bg-black">
-		<div class="container">
-			<p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.bundle.js"></script>
-	<script src="/js/new.js"></script>
-	<script src="/js/common.js"></script>
-</body>
-
+		<!-- Bootstrap core JavaScript -->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.bundle.js"></script>
+		<script src="/js/new.js"></script>
+		<script src="/js/common.js"></script>
+	</body>
 </html>

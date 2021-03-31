@@ -1,102 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
 
-<head>
+		<title>Gyunlog - 로그인</title>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.css" rel="stylesheet" />
 
-	<title>Gyunlog - 로그인</title>
+		<!-- Custom fonts for this template -->
+		<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
 
-	<!-- Bootstrap core CSS -->
-	<link href="/css/bootstrap.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="/css/one-page-wonder.css" rel="stylesheet" />
+	</head>
 
-	<!-- Custom fonts for this template -->
-	<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
-		rel="stylesheet">
-
-	<!-- Custom styles for this template -->
-	<link href="/css/one-page-wonder.css" rel="stylesheet">
-</head>
-
-<body>
-
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="/">Gyunlog</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="/">홈으로</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/login">로그인</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/register">회원가입</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<header class="masthead text-center text-white">
-		<div class="masthead-content">
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 			<div class="container">
-				<h1 class="masthead-heading mb-0">로그인 페이지</h1>
+				<a class="navbar-brand" href="/">Gyunlog</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarResponsive"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="/">홈으로</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/login">로그인</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/register">회원가입</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<header class="masthead text-center text-white">
+			<div class="masthead-content">
+				<div class="container">
+					<h1 class="masthead-heading mb-0">로그인 페이지</h1>
+				</div>
+			</div>
+		</header>
+
+		<div class="container masthead-content mt-5 mb-5">
+			<!-- Content here -->
+			<p class="h2 card-title">로그인</p>
+			<div class="mb-1">
+				<label class="form-label form-control-lg">아이디</label>
+				<input id="id" type="text" class="form-control form-control-lg" placeholder="아이디를 입력하세요." />
+			</div>
+
+			<div class="mb-1">
+				<label class="form-label form-control-lg">비밀번호</label>
+				<input id="password" type="password" class="form-control form-control-lg" placeholder="비밀번호를 입력하세요." />
+			</div>
+
+			<div class="d-grid gap-2 mt-4 mb-4">
+				<button type="button" class="btn btn-primary btn-lg" onclick="login()">로그인</button>
+			</div>
+			<hr />
+			<div class="d-grid gap-2 mt-4 mb-5">
+				<p class="h2 card-title">회원가입</p>
+				<label class="ml-1">아직 회원이 아니시라면?</label>
+				<div class="d-grid gap-2 mt-3 mb-5">
+					<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/register'">가입하기</button>
+				</div>
 			</div>
 		</div>
-	</header>
 
-	<div class="container masthead-content mt-5 mb-5">
-		<!-- Content here -->
-		<p class="h2 card-title">로그인</p>
-		<div class="mb-1">
-			<label class="form-label form-control-lg">아이디</label>
-			<input id="id" type="text" class="form-control form-control-lg" placeholder="아이디를 입력하세요.">
-		</div>
-
-		<div class="mb-1">
-			<label class="form-label form-control-lg">비밀번호</label>
-			<input id="password" type="password" class="form-control form-control-lg" placeholder="비밀번호를 입력하세요.">
-		</div>
-
-		<div class="d-grid gap-2 mt-4 mb-4">
-			<button type="button" class="btn btn-primary btn-lg" onclick="login()">로그인</button>
-		</div>
-		<hr>
-		<div class="d-grid gap-2 mt-4 mb-5">
-			<p class="h2 card-title">회원가입</p>
-			<label class="ml-1">아직 회원이 아니시라면?</label>
-			<div class="d-grid gap-2 mt-3 mb-5">
-				<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/register'">가입하기</button>
+		<!-- Footer -->
+		<footer class="py-5 bg-black">
+			<div class="container">
+				<p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
 			</div>
-		</div>
-	</div>
+			<!-- /.container -->
+		</footer>
 
-
-
-	<!-- Footer -->
-	<footer class="py-5 bg-black">
-		<div class="container">
-			<p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.bundle.js"></script>
-	<script src="/js/login.js"></script>
-	<script src="/js/common.js"></script>
-</body>
-
+		<!-- Bootstrap core JavaScript -->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.bundle.js"></script>
+		<script src="/js/login.js"></script>
+		<script src="/js/common.js"></script>
+	</body>
 </html>
