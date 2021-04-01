@@ -21,17 +21,17 @@ Javascript, Node.js, mongoDB, JWT
 
 ## 페이지별 기능 상세 설명
 
-#### 메인 페이지
+### 메인 페이지
 <details>
     <summary>자세히</summary>
-	
+
 - 로그인 여부에 따라 로그인 버튼 혹은 글쓰기 버튼이 보이게 되며 접속 중인 사용자 닉네임을 표시합니다.
 - 글 목록은 최신순으로 표시되며 제목, 작성자, 작성 일자를 표시합니다.
 - 자세히 보기 버튼을 누르면 해당 글의 상세 페이지로 이동합니다.
 
 </details>
 
-#### 로그인 페이지
+### 로그인 페이지
 <details>
     <summary>자세히</summary>
 
@@ -60,7 +60,7 @@ if (user) {
 ```
 </details>
 
-#### 회원가입
+### 회원가입
 <details>
     <summary>자세히</summary>
 
@@ -80,7 +80,7 @@ await User.create({ // 검증 후 유저 생성
 ```
 </details>
 
-#### 상세 페이지
+### 상세 페이지
 
 <details>
     <summary>자세히</summary>
@@ -117,7 +117,7 @@ router.get('/:id', async (req, res) => {
 ```
 </details>
 
-#### 글쓰기
+### 글쓰기
 <details>
     <summary>자세히</summary>
 - 로그인한 사용자만 해당 기능을 이용할 수 있습니다.
@@ -147,11 +147,13 @@ if (!(title && content)) {
 ```
 </details>
 
-#### 공통 기능
+### 공통 기능
 <details>
     <summary>자세히</summary>
+	
 - 로그인이 필요한 기능은 모두 토큰을 확인하여 정상적인 사용자인지 체크합니다. (미들웨어)
 - 외부로 보이는 모든 정보는 XSS 공격을 대비해 sanitize-html 모듈을 활용하여 데이터를 저장하고 보여줍니다.
+
 ```javascript
 module.exports = (req, res, next) => { // 접속 인증 미들웨어
 	const { token } = req.headers;
