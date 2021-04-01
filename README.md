@@ -1,12 +1,12 @@
 # Gyunlog
 >로그인하여 글을 남겨보세요! 😀   
 
-
-![ezgif-3-fcb76ddd2d2e](https://user-images.githubusercontent.com/58046372/113247144-5bd10580-92f5-11eb-93e2-26127610c366.gif)
-
 ## 사용한 것
 Javascript, Node.js, mongoDB, JWT
    
+
+![ezgif-3-fcb76ddd2d2e](https://user-images.githubusercontent.com/58046372/113247144-5bd10580-92f5-11eb-93e2-26127610c366.gif)
+
    
 ## 주요기능
 - **메인 페이지(글 목록)**: 누구나 글 목록을 확인하고 클릭하여 상세 내용을 확인할 수 있어요.
