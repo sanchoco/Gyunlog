@@ -85,8 +85,8 @@ router.put('/:id/update', authMiddleware, async (req, res) => {
 });
 
 // 게시글 삭제 처리
-router.delete('/:id', authMiddleware, async (req, res) => {
-	const id = req.params.id;
+router.delete('/:postId', authMiddleware, async (req, res) => {
+	const id = req.params.postId;
 	const { token } = req.headers;
 	const { userId } = jwt.verify(token, key);
 	const user = await User.findOne({ _id: userId });

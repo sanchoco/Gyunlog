@@ -39,9 +39,6 @@ function delete_data(postId) {
 			headers: {
 				token: localStorage.getItem('token')
 			},
-			data: {
-				postId: postId
-			},
 			success: function (response) {
 				if (response.msg == 'success') {
 					alert('삭제 완료!');
@@ -88,7 +85,7 @@ function comment_add(postId) {
 function show_comment() {
 	// 댓글 목록
 	$.ajax({
-		type: 'get',
+		type: 'GET',
 		url: `/comment${window.location.pathname}`,
 		headers: {
 			token: localStorage.getItem('token')
