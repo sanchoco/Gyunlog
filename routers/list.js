@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../schemas/posting');
 const User = require('../schemas/user');
+const Comment = require('../schemas/comment');
 const authMiddleware = require('../middlewares/auth');
 const jwt = require('jsonwebtoken');
 const key = require('../secret_key');
@@ -95,6 +96,9 @@ router.delete('/:postId', authMiddleware, async (req, res) => {
 		res.json({ msg: 'fail' });
 		return;
 	}
+
+	await Comment.deleteMany({ postId: id }).catch();
+
 	await Post.deleteOne({ postId: id })
 		.then(() => {
 			res.json({ msg: 'success' });
