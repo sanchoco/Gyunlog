@@ -1,33 +1,38 @@
-# Gyunlog (수정중)
+# Gyunlog
 
->익명으로 게시글을 남겨보세요!
+>게시글을 남겨보세요!
 
-<img src="https://user-images.githubusercontent.com/58046372/112098879-ddce7980-8be5-11eb-9e2c-9ae34d813e63.jpg" height="390px">
 
 ### 주요기능
-- 여러 사람이 올린 게시글을 확인할 수 있어요.
-- 최근 작성 순으로 목록이 보여집니다.
-- 게시글을 작성할 수 있어요.
-- 비밀번호를 입력하여 수정 또는 삭제를 할 수 있어요.
+- **글 목록 및 상세 내용**: 누구나 글 목록을 확인하고 클릭하여 상세 내용을 확인할 수 있어요.
+- **회원가입**: 아이디, 비밀번호, 닉네임을 확인하고 회원가입을 진행할 수 있습니다.
+- **로그인, 로그아웃**: 아이디, 패스워드를 입력하여 로그인 할 수 있고 로그아웃 버튼을 눌러 나올 수 있어요.
+- **글 작성, 수정, 삭제**: 로그인한 사용자는 글을 작성하여 게시할 수 있고 자신의 글만 수정 및 삭제가 가능해요.
+- **댓글 작성, 수정, 삭제**: 로그인한 사용자는 댓글을 달 수 있고 자신의 댓글만 수정 및 삭제가 가능해요.
 
-### 사용 기술
-Node.js, express, mongoDB, jQuery, Bootstrap
+
+### 사용한 것
+Javascript, Node.js, express, mongoDB, jwt, jQuery
 
 
 ### 기능(API 목록)
+|             |     기능     | Method |        URL         |                 request                 |                           response                           |
+| :---------: | :----------: | :----: | :-------------: | :----------------------------: | :-----------------------------: |
+| 메인 페이지 |  화면 표시   |  GET   |         /          |                                         |                          index.html              |
+|             |  글 리스트   |  GET   |       /list        |                                         |             { postId, title, nickname, date }...    |
+|             |  접속 정보   |  GET   |       /user        |                                         |                           nickname                |
+|   로그인    | 사용자 접속  |  POST  |       /login       |            { id, password }             |                 success \|\| empty \|\| fail       |
+|  회원가입   |  등록 요청   |  POST  |     /register      | { id, password, password_re, nickname } | success \|\| empty \|\| wrong_id \|\| wrong_nickname \|\| wrong_password \|\| already_id \|\| already_nickname \|\| iff_password |
+| 상세 페이지 |  화면 표시   |  GET   |      /:postId      |                                         |                         detail.html                  |
+|             | 글 상세 정보 |  GET   |   /list/:postId    |                                         |               {title, nickname, content, date}     |
+|             |   글 수정    |  PUT   |   /list/:postId    |           { title, content  }           |                 success \|\| empty \|\| fail            |
+|             |   글 삭제    | DELETE |   /list/:postId    |                                         |                      success \|\| fail              |
+|             |  댓글 목록   |  GET   |  /comment/:postId  |                                         |                 {nickname, comment, date}...           |
+|             |  댓글 작성   |  POST  |  /comment/:postId  |               { comment }               |                 success \|\| empty \|\| fail           |
+|             |  댓글 수정   |  PUT   | comment/:commentId |         { commentId, comment }          |                 success \|\| empty \|\| fail         |
+|             |  댓글 삭제   | DELETE | comment/:commentId |                                         |                      success \|\| fail               |
 
-| 기능 | Method    | URL | request | response |
-| :-       | -    | :-: | -:      | -:       |
-| 메인페이지  | GET | / |  | 메인 페이지 |
-|          | GET | /api/list |  | 게시글 목록(제목, 작성자, 작성일) |
-| 글쓰기     | GET | /post | | 게시글 작성 페이지 |
-|          | POST | /api/post | {title, write, password, content} | 게시글 작성 처리 후 성공 여부 |
-| 상세 페이지 | GET | /detail/:id |  | 게시글 상세 페이지 |
-|          | GET | /api/detail/:id |  | 해당 글 데이터(제목, 작성자, 작성일, 내용) |
-| 수정 페이지 | GET | /update/:id |  | 게시글 수정 페이지 |
-|          | GET | /api/update/:id |  | 수정을 위한 글 정보(제목, 작성자, 내용) |
-|          | PUT | /api/update/:id | { password } | 패스워드 확인 후 수정 |
-|          | DELETE | /api/delete/:id | { password } | 패스워드 확인 후 삭제 |
+
 
 ### 기타
 - XSS 공격 방지: sanitize-html 모듈을 사용하여 JS코드 차단
