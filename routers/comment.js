@@ -13,8 +13,8 @@ const moment = require('moment');
 require('moment-timezone');
 moment.tz.setDefault('Asia/Seoul');
 
-router.get('/:id', async (req, res) => {
-	const id = req.params.id;
+router.get('/:commentId', async (req, res) => {
+	const id = req.params.commentId;
 	comments = await Comment.find({ postId: id }).sort({ commentId: -1 });
 	let user;
 	try {
@@ -38,8 +38,8 @@ router.get('/:id', async (req, res) => {
 });
 
 // 새 댓글 작성
-router.post('/:id', authMiddleware, async (req, res) => {
-	const id = req.params.id;
+router.post('/:postId', authMiddleware, async (req, res) => {
+	const id = req.params.postId;
 	const data = await req.body;
 	const { token } = req.headers;
 	const { userId } = jwt.verify(token, key);
@@ -89,7 +89,7 @@ router.put('/:commentId', authMiddleware, async (req, res) => {
 	res.json({ msg: 'fail' });
 });
 
-// 댓글 수정
+// 댓글 삭제
 router.delete('/:commentId', authMiddleware, async (req, res) => {
 	const commentId = req.params.commentId;
 	const { token } = req.headers;
