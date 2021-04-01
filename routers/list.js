@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
 		const { userId } = jwt.verify(token, key);
 		user = await User.findOne({ _id: userId }, { nickname: true });
 	} catch (err) {}
-	let permission = 0;
+	let permission = 0; // 프론트 수정,삭제 버튼을 표시하기 위한 변수
 	if (user && user['nickname'] == post['nickname']) permission = 1;
 
 	const data = {
