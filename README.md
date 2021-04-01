@@ -20,6 +20,9 @@ Javascript, Node.js, mongoDB, JWT
 
 
 ## 페이지별 기능 상세 설명
+<details>
+    <summary>펼치기/접기</summary>
+
 #### 메인 페이지
 - 로그인 여부에 따라 로그인 버튼 혹은 글쓰기 버튼이 보이게 되며 접속 중인 사용자 닉네임을 표시합니다.
 - 글 목록은 최신순으로 표시되며 제목, 작성자, 작성 일자를 표시합니다.
@@ -149,7 +152,12 @@ module.exports = (req, res, next) => { // 접속 인증 미들웨어
 ```
 
 
+</details>
+
 ## API 목록
+
+<details>
+    <summary>펼치기/접기</summary>
 
 |                |     기능     | Method |        URL         |                 request                 |                           response                           |
 | :------------: | :----------: | :----: | :----------------: | :-------------------------------------: | :----------------------------------------------------------: |
@@ -170,4 +178,6 @@ module.exports = (req, res, next) => { // 접속 인증 미들웨어
 |                |  댓글 작성   |  POST  |  /comment/:postId  |               { comment }               |                 success \|\| empty \|\| fail                 |
 |                |  댓글 수정   |  PUT   | comment/:commentId |         { commentId, comment }          |                 success \|\| empty \|\| fail                 |
 |                |  댓글 삭제   | DELETE | comment/:commentId |                                         |                      success \|\| fail                       |
+
+</details>
 
