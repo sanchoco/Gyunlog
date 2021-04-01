@@ -21,9 +21,8 @@ Javascript, Node.js, mongoDB, JWT
 
 ## 페이지별 기능 상세 설명
 
-### 메인 페이지
 <details>
-    <summary>자세히</summary>
+    <summary>메인 페이지</summary>
 
 - 로그인 여부에 따라 로그인 버튼 혹은 글쓰기 버튼이 보이게 되며 접속 중인 사용자 닉네임을 표시합니다.
 - 글 목록은 최신순으로 표시되며 제목, 작성자, 작성 일자를 표시합니다.
@@ -31,9 +30,8 @@ Javascript, Node.js, mongoDB, JWT
 
 </details>
 
-### 로그인 페이지
 <details>
-    <summary>자세히</summary>
+    <summary>로그인 페이지</summary>
 
 - 사용자는 아이디와 패스워드를 입력하여 로그인을 요청합니다.
 - 서버는 DB와 해당 사용자가 존재한다면 토큰을 발급하고 로그인 요청을 승인합니다.
@@ -60,9 +58,9 @@ if (user) {
 ```
 </details>
 
-### 회원가입
+
 <details>
-    <summary>자세히</summary>
+    <summary>회원가입</summary>
 
 - 아이디는 3자 이상 영문 ,숫자, _ 만 사용 가능하고 패스워드는 아이디가 포함되지 않는 4자 이상 사용할 수 있어요.
 - 닉네임은 공백을 제외한 2자~10자 사용할 수 있어요.
@@ -80,10 +78,9 @@ await User.create({ // 검증 후 유저 생성
 ```
 </details>
 
-### 상세 페이지
-
 <details>
-    <summary>자세히</summary>
+    <summary>상세 페이지</summary>
+	
 - 누구든지 글의 제목, 작성자, 작성일, 댓글을 확인할 수 있습니다.
 - 해당 글의 작성자만 수정 및 삭제 버튼이 보이며 해당 기능을 이용할 수 있습니다.
 - 댓글 작성은 로그인한 사용자에게만 보이며 댓글을 작성하여 등록할 수 있습니다.
@@ -117,12 +114,13 @@ router.get('/:id', async (req, res) => {
 ```
 </details>
 
-### 글쓰기
 <details>
-    <summary>자세히</summary>
+    <summary>글쓰기</summary>
+	
 - 로그인한 사용자만 해당 기능을 이용할 수 있습니다.
 - 제목과 내용을 작성하여 글쓰기 버튼을 누르면 게시글을 등록할 수 있습니다.
 - 만약 로그인하지 않은 사용자가 강제로 페이지에 접속한다면 메인 페이지로 돌려보냅니다.
+
 ```javascript
 const title = sanitizeHtml(data['title']);
 const content = sanitizeHtml(data['content']);
@@ -145,11 +143,11 @@ if (!(title && content)) {
    res.json({ msg: 'success' });
 }
 ```
+
 </details>
 
-### 공통 기능
 <details>
-    <summary>자세히</summary>
+    <summary>공통 기능</summary>
 	
 - 로그인이 필요한 기능은 모두 토큰을 확인하여 정상적인 사용자인지 체크합니다. (미들웨어)
 - 외부로 보이는 모든 정보는 XSS 공격을 대비해 sanitize-html 모듈을 활용하여 데이터를 저장하고 보여줍니다.
