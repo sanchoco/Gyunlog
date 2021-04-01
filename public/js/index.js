@@ -43,7 +43,6 @@ function whoru() {
 			},
 			success: function (response) {
 				let nickname = response.nickname;
-				console.log(response);
 				$('#whoru').text(`${nickname}님, 안녕하세요!`);
 			},
 			error: function (xhr, status, err) {
