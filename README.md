@@ -180,7 +180,7 @@ module.exports = (req, res, next) => { // 접속 인증 미들웨어
 | |글 리스트| GET | /list | |{ postId, title, nickname, date }...|
 | |접속 정보|GET|/user| |nickname|
 |로그인|화면 표시|GET|/login| |login.html|
-||사용자 접속|POST|/login|{ id, password }|success \|\| empty \|\| fail|
+| |사용자 접속|POST|/login|{ id, password }|success \|\| empty \|\| fail|
 |회원가입|화면 표시|GET|/register||register.html|
 | |등록 요청|POST|/register|{ id, password, password_re, nickname }|success \|\| empty \|\| wrong_id \|\| wrong_nickname \|\| wrong_password \|\| already_id \|\| already_nickname \|\| diff_password |
 | 글 작성 페이지 | 화면 표시 | GET | /new | | new.html |
@@ -195,4 +195,17 @@ module.exports = (req, res, next) => { // 접속 인증 미들웨어
 | | 댓글 삭제 | DELETE | comment/:commentId | | success \|\| fail |
 
 </details>
+
+## 후기
+프론트엔드와 백엔드를 완전히 구분하기 위해 템플릿 엔진을 사용하지 않고 사이트를 만들기 시작했습니다.   
+백엔드에 집중하기 위해 부트스트랩 템플릿을 사용하고 AJAX를 활용해 통신하는 방식으로 만들었고 API를 만드는 부분에 있어서 최대한 REST하여 간결하고 의미있게 만드는데 노력했습니다.
+
+API를 설계할 때 메인페이지에서 글 리스트를 가져오는 API를 '\/', GET 요청을 하게 되면 html을 불러오는 URI와 겹치기 때문에 /list를 만들게 되고 자연스럽게 상세페이지는 '/:id'와 '/list/:id'로 만들게 되어서 REST가 맞을까 고민했습니다. 메소드 요청은 알맞게 했지만 URI를 만드는 부분에서 미흡한 점이 많다고 느껴졌고 스스로 깨닫고 더 공부하는 계기가 되었습니다.
+   
+미들웨어를 직접 만들어 사용해보고 여러 에러를 겪으면서 확실하게 이해할 수 있었습니다. 라우터 레벨에서 미들웨어를 직접 붙였던 적이 있었는데 response가 원하는대로 되지 않았고 로그를 찍어 원인을 찾는데 애를 먹었습니다. 라우터 레벨에 미들웨어를 사용했을 때 하위 레벨에 들어가기 전 URI가 응답해버리는 바람에 정상 작동되지 않는 것을 알 수 있었고, 요청을 받는 부분에 미들웨어를 붙여 처리하도록 하여 해결할 수 있었습니다.
+
+이전에 파이썬 플라스크로 JWT 인증을 구현해본 적 있었고 이번 프로젝트에서 로그인 구현하면서 도움되었습니다. JWT에 대해 확실히 이해하며 내 것이 만드는 시간이였습니다. 그리고 사용자가 작성한 글이나 댓글에서만 수정, 삭제 버튼이 보이게 할지 고민하였는데, 서버에서 접속한 사용자와 매칭해서 권한에 대한 정보를 보내주고 서비스를 요청할 때 권한을 다시 한번 확인하도록 했습니다.  
+
+가장 기본적인 CRUD와 로그인 인증을 구현한 프로젝트이라 단순하지만 기초를 확실하게 다지는 프로젝트였습니다.
+
 
