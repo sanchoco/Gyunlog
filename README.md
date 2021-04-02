@@ -174,25 +174,25 @@ module.exports = (req, res, next) => { // 접속 인증 미들웨어
 <details>
     <summary>자세히</summary>
 
-|                |     기능     | Method |        URL         |                 request                 |                           response                           |
+|      |  기능  | Method |URL|request|response|
 | :- | :- | :- | :- | :- | :- |
-|  메인 페이지   |  화면 표시   |  GET   |         /          |                                         |                          index.html                          |
-|                |  글 리스트   |  GET   |       /list        |                                         |             { postId, title, nickname, date }...             |
-|                |  접속 정보   |  GET   |       /user        |                                         |                           nickname                           |
-|     로그인     |  화면 표시   |  GET   |       /login       |                                         |                          login.html                          |
-|                | 사용자 접속  |  POST  |       /login       |            { id, password }             |                 success \|\| empty \|\| fail                 |
-|    회원가입    |  화면 표시   |  GET   |     /register      |                                         |                        register.html                         |
-|                |  등록 요청   |  POST  |     /register      | { id, password, password_re, nickname } | success \|\| empty \|\| wrong_id \|\| wrong_nickname \|\| wrong_password \|\| already_id \|\| already_nickname \|\| diff_password |
-| 글 작성 페이지 |  화면 표시   |  GET   |        /new        |                                         |                           new.html                           |
-|                |   글 작성    |  POST  |        /new        |            { title, content}            |                 success \|\| empty \|\| fail                 |
-|  상세 페이지   |  화면 표시   |  GET   |      /:postId      |                                         |                         detail.html                          |
-|                | 글 상세 정보 |  GET   |   /list/:postId    |                                         |               {title, nickname, content, date}               |
-|                |   글 수정    |  PUT   |   /list/:postId    |           { title, content  }           |                 success \|\| empty \|\| fail                 |
-|                |   글 삭제    | DELETE |   /list/:postId    |                                         |                      success \|\| fail                       |
-|                |  댓글 목록   |  GET   |  /comment/:postId  |                                         |                 {nickname, comment, date}...                 |
-|                |  댓글 작성   |  POST  |  /comment/:postId  |               { comment }               |                 success \|\| empty \|\| fail                 |
-|                |  댓글 수정   |  PUT   | comment/:commentId |         { commentId, comment }          |                 success \|\| empty \|\| fail                 |
-|                |  댓글 삭제   | DELETE | comment/:commentId |                                         |                      success \|\| fail                       |
+| 메인 페이지 |  화면 표시   |  GET|/||index.html|
+| |글 리스트| GET | /list | |{ postId, title, nickname, date }...|
+| |접속 정보|GET|/user| |nickname|
+|로그인|화면 표시|GET|/login| |login.html|
+||사용자 접속|POST|/login|{ id, password }|success \|\| empty \|\| fail|
+|회원가입|화면 표시|GET|/register||register.html|
+| |등록 요청|POST|/register|{ id, password, password_re, nickname }|success \|\| empty \|\| wrong_id \|\| wrong_nickname \|\| wrong_password \|\| already_id \|\| already_nickname \|\| diff_password |
+| 글 작성 페이지 | 화면 표시 | GET | /new | | new.html |
+| | 글 작성 | POST | /new | { title, content} | success \|\| empty \|\| fail |
+|  상세 페이지 |  화면 표시   | GET | /:postId | | detail.html |
+| | 글 상세 정보 | GET | /list/:postId | |    {title, nickname, content, date}  |
+| | 글 수정 | PUT | /list/:postId | { title, content  } | success \|\| empty \|\| fail |
+| | 글 삭제 | DELETE |   /list/:postId | | success \|\| fail |
+| | 댓글 목록 |  GET |  /comment/:postId  | | {nickname, comment, date}... |
+| | 댓글 작성 |  POST |  /comment/:postId  | { comment } | success \|\| empty \|\| fail |
+| | 댓글 수정 |  PUT | comment/:commentId | { commentId, comment } | success \|\| empty \|\| fail |
+| | 댓글 삭제 | DELETE | comment/:commentId | | success \|\| fail |
 
 </details>
 
