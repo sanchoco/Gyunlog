@@ -46,7 +46,8 @@ router.post('/', async (req, res) => {
 		return;
 	}
 	try {
-		await User.create({ // 검증 후 유저 생성
+		await User.create({
+			// 검증 후 유저 생성
 			id: sanitizeHtml(id),
 			password: bcrypt.hashSync(password, 10), // 암호화 저장
 			nickname: sanitizeHtml(nickname)

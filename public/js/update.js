@@ -37,7 +37,7 @@ function update_data(postId) {
 		success: function (response) {
 			if (response.msg == 'success') {
 				alert('수정 완료!');
-				window.location.href = '/';
+				window.location.href = `/${window.location.pathname.split('/')[1]}`;
 			} else if (response.msg == 'empty') {
 				alert('빈 칸을 확인하세요.');
 			} else {
